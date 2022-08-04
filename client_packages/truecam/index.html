@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="TrueCam">
+        <div class="dateNow">0000/0/0 00:00:00</div>
+        <div class="speedNow">
+            <i class="speedometer">0</i>
+            <div class="speedNow_km"> KM/H</div> 
+        </div>
+       
+        <div class="distNow">Distance: 0 м</div>
+    </div>
+<script>
+    function update(speed, dist)
+{   
+    if (speed == 'undefined' || dist == 'undefined' ) return;
+    document.getElementsByClassName('speedometer')[0].innerHTML = speed;
+    document.getElementsByClassName('distNow')[0].innerHTML = `Distance: ${dist} м`;
+}
+
+window.onload = function() {
+     window.setInterval(function() {
+         var date = new Date();
+         let dateNow = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
+         let timeNow = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+         document.getElementsByClassName('dateNow')[0].innerHTML = `${dateNow} ${timeNow}`;
+     })
+ }
+
+    
+</script>
+</body>
+</html>
